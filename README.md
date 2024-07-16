@@ -1,39 +1,121 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto Escola - Frontend e Backend
 
-## Getting Started
+## Descrição
 
-First, run the development server:
+O Projeto Escola é uma aplicação composta por dois componentes principais:
+1. **Backend**: Uma API desenvolvida em .NET que fornece endpoints para gerenciar informações sobre alunos, professores, cursos e usuários.
+2. **Frontend**: Uma aplicação React usando Next.js que consome a API e fornece uma interface para interagir com os dados.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Estrutura do Projeto
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Backend**: Localizado na pasta `backend`
+- **Frontend**: Localizado na pasta `frontend`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Requisitos
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Backend
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [.NET 6.0](https://dotnet.microsoft.com/download/dotnet/6.0)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (ou outro banco de dados compatível com o Entity Framework Core)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Frontend
 
-## Learn More
+- [Node.js](https://nodejs.org/) (versão recomendada: LTS)
+- [npm](https://www.npmjs.com/) ou [Yarn](https://yarnpkg.com/) (gerenciadores de pacotes)
 
-To learn more about Next.js, take a look at the following resources:
+## Instalação e Configuração
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Backend
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clone o repositório:**
 
-## Deploy on Vercel
+    ```bash
+    git clone https://github.com/usuario/projeto-escola.git
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Navegue até o diretório do backend:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# apiEscola
+    ```bash
+    cd projeto-escola/backend
+    ```
+
+3. **Restaure as dependências:**
+
+    ```bash
+    dotnet restore
+    ```
+
+4. **Configure a string de conexão no arquivo `appsettings.json`:**
+
+    ```json
+    "ConnectionStrings": {
+      "StringConexaoSQLServer": "Server=SEU_SERVIDOR;Database=SEU_BANCO_DE_DADOS;User Id=SEU_USUARIO;Password=SUA_SENHA;"
+    }
+    ```
+
+5. **Crie e aplique as migrações do banco de dados:**
+
+    ```bash
+    dotnet ef migrations add InitialCreate
+    dotnet ef database update
+    ```
+
+6. **Execute a API:**
+
+    ```bash
+    dotnet run
+    ```
+
+7. **A API estará disponível em** `http://localhost:5000`
+
+### Frontend
+
+1. **Navegue até o diretório do frontend:**
+
+    ```bash
+    cd projeto-escola/frontend
+    ```
+
+2. **Instale as dependências:**
+
+    ```bash
+    npm install
+    ```
+
+   ou, se estiver usando Yarn:
+
+    ```bash
+    yarn install
+    ```
+
+3. **Configure a URL da API no arquivo `.env.local`:**
+
+    ```
+    NEXT_PUBLIC_API_URL=http://localhost:5000
+    ```
+
+4. **Execute a aplicação:**
+
+    ```bash
+    npm run dev
+    ```
+
+   ou, se estiver usando Yarn:
+
+    ```bash
+    yarn dev
+    ```
+
+5. **O frontend estará disponível em** `http://localhost:3000`
+
+## Uso
+
+- **Frontend**: A aplicação frontend permite que você visualize e interaja com os dados de alunos, professores, cursos e usuários. A interface é construída com Next.js e consome a API do backend.
+
+- **Backend**: A API fornece endpoints REST para CRUD (Create, Read, Update, Delete) nas entidades `Alunos`, `Professores`, `Cursos`, e `Usuários`. Consulte a documentação da API para mais detalhes sobre os endpoints.
+
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
