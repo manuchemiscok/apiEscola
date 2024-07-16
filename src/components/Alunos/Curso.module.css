@@ -1,0 +1,13 @@
+.tabCurso {   
+    border: 1px solid #ccc;
+    width: 70%;
+    margin: auto;
+    padding: 5px 5px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.cabecTabela {
+    background-color: black;
+    color: white;
+}
