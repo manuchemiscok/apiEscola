@@ -1,4 +1,5 @@
 # Projeto Escola - Frontend e Backend
+> Status: Desenvolvendo.
 
 ## Descrição
 
